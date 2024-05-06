@@ -1,5 +1,6 @@
 export default function Jumbotron(props) {
-    const { title, subTitle } = props
+    // set subtitle to default
+    const { title, subTitle="Welcome to React E-commerce" } = props
     return (
         <div className="container-fluid bg-secondary">
             <div className="row">
