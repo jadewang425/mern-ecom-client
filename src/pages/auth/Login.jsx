@@ -16,7 +16,7 @@ export default function Login () {
         evt.preventDefault()
 
         try {
-            const { data } = await axios.post(`${process.env.REACT_APP_API}/login`, {
+            const { data } = await axios.post(`/login`, {
                 email,
                 password,
             })

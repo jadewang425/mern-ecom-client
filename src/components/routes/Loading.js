@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function Loading() {
@@ -9,7 +10,7 @@ export default function Loading() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCount((currCt) => --currCt)
+            setCount((currentCount) => --currentCount)
         }, 1000)
 
         // redirect once count is equal to 0
@@ -18,6 +19,13 @@ export default function Loading() {
         return () => clearInterval(interval)
     }, [count])
 
-    return <div className="d-flex justify-content-center align-items-center vh-100">Redirecting you in {count} seconds.</div>
+    return (
+        <>
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <Spinner animation="border" variant="secondary" />
+                <div className="p-3">Redirecting you in {count} seconds.</div>
+            </div>
+        </>
+    )
 
 }
