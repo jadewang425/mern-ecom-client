@@ -29,6 +29,7 @@ export default function Register () {
                 localStorage.setItem('auth', JSON.stringify(data))
                 setAuth({ ...auth, token: data.token, user: data.user })
                 toast.success("Registeration successful")
+                navigate("/")
             }
         } catch (err) {
             console.log(err)
