@@ -11,9 +11,9 @@ export default function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link to="/">Home</Nav.Link>
-                        <Nav.Link to="/login">Login</Nav.Link>
-                        <Nav.Link to="/register">Register</Nav.Link>
+                        <NavLink className='nav-link' to='/'>Home</NavLink>
+                        <NavLink className='nav-link' to='/login'>Login</NavLink>
+                        <NavLink className='nav-link' to='/register'>Register</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

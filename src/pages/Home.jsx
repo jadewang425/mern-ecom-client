@@ -1,7 +1,9 @@
+import Jumbotron from "../components/cards/jumbotron"
+
 export default function Home () {
     return (
         <div>
-            <h1>This is Homepage</h1>
+            <Jumbotron title="Hello World" subTitle="Welcome to React E-commerce"/>
         </div>
     )
 }

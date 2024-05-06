@@ -1,7 +1,9 @@
+import Jumbotron from "../components/cards/jumbotron"
+
 export default function Register () {
     return (
         <div>
-            <h1>This is Register page</h1>
+            <Jumbotron title="Register" subTitle="Welcome to React E-commerce" />
         </div>
     )
 }
