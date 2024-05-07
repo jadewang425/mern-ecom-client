@@ -1,9 +1,8 @@
 import { useAuth } from "../../context/auth"
 import Jumbotron from "../../components/cards/jumbotron"
-import { ListGroup, ListGroupItem } from "react-bootstrap"
 import AdminNavbar from "../../components/AdminNavbar"
 
-export default function AdminDashboard() {
+export default function AdminProduct() {
     // context
     const [ auth, setAuth ] = useAuth()
 
@@ -16,12 +15,8 @@ export default function AdminDashboard() {
                         <AdminNavbar />
                     </div>
                     <div className="col-md-9">
-                        <div className="p-3 mt-2 mb-2 bg-light h4">Admin Information</div>
-                        <ListGroup>
-                            <ListGroupItem>{auth?.user?.name}</ListGroupItem>
-                            <ListGroupItem>{auth?.user?.email}</ListGroupItem>
-                            <ListGroupItem>Admin</ListGroupItem>
-                        </ListGroup>
+                        <div className="p-3 mt-2 mb-2 bg-light h4">Manage Products</div>
+                        <p>Create product form</p>
                     </div>
                 </div>
             </div>
