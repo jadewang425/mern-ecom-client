@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Loading({path = "login"}) {
     // state
-    const [count, setCount] = useState(3)
+    const [count, setCount] = useState(1)
     // hooks
     const navigate = useNavigate()
     const location = useLocation()
@@ -26,7 +26,7 @@ export default function Loading({path = "login"}) {
         <>
             <div className="d-flex justify-content-center align-items-center vh-100">
                 <Spinner animation="border" variant="secondary" />
-                <div className="p-3">Redirecting you in {count} seconds.</div>
+                {/* <div className="p-3">Redirecting you in {count} seconds.</div> */}
             </div>
         </>
     )
