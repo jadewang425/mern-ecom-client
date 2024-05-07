@@ -4,7 +4,7 @@ import { useAuth } from "../../context/auth";
 import Loading from "./Loading";
 import axios from "axios";
 
-export default function AdminRoute () {
+export default function AdminRoute() {
     // context
     const [ auth, setAuth ] = useAuth()
     // state
