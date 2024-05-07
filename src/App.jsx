@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar";
 import Dashboard from "./pages/user/Dashboard";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import Wishlist from "./pages/user/Wishlist";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminRoute from "./components/routes/AdminRoute";
 
 const PageNotFound = () => {
     return (
@@ -26,8 +28,11 @@ export default function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<PrivateRoute />}>
-                    <Route path="" element={<Dashboard />}/>
+                    <Route path="user" element={<Dashboard />}/>
                     <Route path="wishlist" element={<Wishlist />} />
+                </Route>
+                <Route path="/dashboard" element={<AdminRoute />}>
+                    <Route path="admin" element={<AdminDashboard />}></Route>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>

@@ -3,7 +3,7 @@ import Jumbotron from "../../components/cards/jumbotron"
 import axios from "axios"
 import toast from "react-hot-toast"
 import { useAuth } from "../../context/auth"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export default function Login () {
     const [ email, setEmail ] = useState('jen425@gmail.com')
@@ -11,6 +11,7 @@ export default function Login () {
 
     const [auth, setAuth] = useAuth()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleSubmit = async (evt) => {
         evt.preventDefault()
@@ -27,7 +28,7 @@ export default function Login () {
                 localStorage.setItem('auth', JSON.stringify(data))
                 setAuth({ ...auth, token: data.token, user: data.user })
                 toast.success("Login successful")
-                navigate("/dashboard")
+                navigate(location.state || `/dashboard/${data?.user?.role === 1 ? "admin" : "user"}`)
             }
         } catch (err) {
             console.log(err)
