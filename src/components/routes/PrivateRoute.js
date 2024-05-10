@@ -14,10 +14,13 @@ export default function PrivateRoute () {
     useEffect(() => {
         const authCheck = async () => {
             const { data } = await axios.get('/auth-check')
+            // console.log('data', data.ok)
             if (data.ok) {
                 setOk(true)
+                // console.log('setOk => ', ok)
             } else {
                 setOk(false)
+                // console.log('setOk => ', ok)
             }
         }
 
