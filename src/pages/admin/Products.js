@@ -36,7 +36,7 @@ export default function AdminProducts() {
                     <div className="col-md-9">
                         <div className="p-3 mt-2 mb-2 bg-light h4">Products</div>
                         {products?.map((p) => 
-                            <Link key={p._id} to={`/dashboard/admin/product/update/${p.slug}`} className="text-decoration-none">
+                            <Link key={p._id} to={`/dashboard/admin/product/update/${p._id}`} className="text-decoration-none">
                                 <div className="card mb-3">
                                     <div className="row g-0">
                                         <div className="col-md-4">
