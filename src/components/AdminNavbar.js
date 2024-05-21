@@ -8,6 +8,7 @@ export default function AdminNavbar() {
             <ListGroup>
                 <NavLink className='list-group-item' to='/dashboard/admin/category'>Create Category</NavLink>
                 <NavLink className='list-group-item' to='/dashboard/admin/product'>Create Product</NavLink>
+                <NavLink className='list-group-item' to='/dashboard/admin/products'>Products</NavLink>
             </ListGroup>
         </>
         

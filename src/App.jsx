@@ -13,6 +13,7 @@ import AdminCategory from "./pages/admin/Category";
 import AdminProduct from "./pages/admin/Product";
 import UserProfile from "./pages/user/Profile";
 import UserOrders from "./pages/user/Orders";
+import AdminProducts from "./pages/admin/Products";
 
 const PageNotFound = () => {
     return (
@@ -41,6 +42,7 @@ export default function App() {
                     <Route path="admin" element={<AdminDashboard />}></Route>
                     <Route path="admin/category" element={<AdminCategory />}></Route>
                     <Route path="admin/product" element={<AdminProduct />}></Route>
+                    <Route path="admin/products" element={<AdminProducts />}></Route>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
