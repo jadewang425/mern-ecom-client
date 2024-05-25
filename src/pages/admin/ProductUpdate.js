@@ -79,11 +79,26 @@ export default function AdminProductUpdate() {
                 toast.error(data.error)
             } else {
                 toast.success(`"${data.name}" is updated`)
-                navigate('/dashboard/admin/products')
+                navigate("/dashboard/admin/products")
             }
         } catch (err) {
             console.log(err)
             toast.error('Product create failed. Try again.')
+        }
+    }
+
+    const handleDelete = async (req, res) => {
+        try {
+            let answer = window.confirm(
+                'Are you sure you want to delete this product?'
+            )
+            if (!answer) return
+            const { data } = await axios.delete(`/product/${id}`)
+            toast.success(`"${data.name}" is deleted.`)
+            navigate("/dashboard/admin/products")
+        } catch (err) {
+            console.log(err)
+            toast.error('Delete failed. Try again.')
         }
     }
 
@@ -173,7 +188,10 @@ export default function AdminProductUpdate() {
                             value={quantity} 
                             onChange={e => setQuantity(e.target.value)}
                         />
-                        <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+                        <div className="d-flex justify-content-between">
+                            <button className="btn btn-primary" onClick={handleSubmit}>Update</button>
+                            <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
