@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import { NavLink, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/auth';
+import { useAuth } from '../../context/auth';
 
 
 export default function NavBar() {
@@ -25,6 +25,7 @@ export default function NavBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink className='nav-link' to='/'>Home</NavLink>
+                        <NavLink className='nav-link' to='/shop'>Shop</NavLink>
                         {!auth?.user  ? (
                             <>
                                 <NavLink className='nav-link' to='/login'>Login</NavLink>

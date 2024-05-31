@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useAuth } from "../../context/auth"
 import Jumbotron from "../../components/cards/jumbotron"
-import AdminNavbar from "../../components/AdminNavbar"
+import AdminNavbar from "../../components/nav/AdminNavbar"
 import axios from "axios"
 import toast from "react-hot-toast"
 import CategoryForm from "../../components/forms/CategoryForm"

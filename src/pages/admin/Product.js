@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "../../context/auth"
 import Jumbotron from "../../components/cards/jumbotron"
-import AdminNavbar from "../../components/AdminNavbar"
+import AdminNavbar from "../../components/nav/AdminNavbar"
 import axios from "axios"
 import { Select } from "antd"
 import toast from "react-hot-toast"
@@ -36,12 +36,12 @@ export default function AdminProduct() {
         }
     }
 
-    const onSearch = (value) => {
-        console.log('search:', value)
-    }
+    // const onSearch = (value) => {
+    //     console.log('search:', value)
+    // }
 
-    const filterOption = (input, option) =>
-        (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+    // const filterOption = (input, option) =>
+    //     (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
 
     const handleSubmit = async (e) => {
         e.preventDefault()

@@ -1,7 +1,7 @@
 import { useAuth } from "../../context/auth"
 import Jumbotron from "../../components/cards/jumbotron"
 import { ListGroup, ListGroupItem } from "react-bootstrap"
-import AdminNavbar from "../../components/AdminNavbar"
+import AdminNavbar from "../../components/nav/AdminNavbar"
 
 export default function AdminDashboard() {
     // context
