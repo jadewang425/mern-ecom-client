@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import Jumbotron from "../components/cards/jumbotron"
 import axios from "axios"
 import ProductCard from "../components/cards/ProductCard"
-import { Checkbox } from "antd"
+import { Checkbox, Radio } from "antd"
+import { prices } from "../prices"
 
 export default function Shop() {
     const [ categories, setCategories ] = useState([])
     const [ products, setProducts ] = useState([])
     const [ checked, setChecked ] = useState([])
+    const [ radio, setRadio ] = useState([])
 
     useEffect(() => {
         loadProducts()
@@ -46,7 +48,7 @@ export default function Shop() {
         setChecked(all)
     }
 
-    console.log('checked => ', checked)
+    console.log('radio => ', radio)
 
     return (
         <>
@@ -54,13 +56,26 @@ export default function Shop() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-3">
-                        <h2 className="p-3 mt-2 mb-2 h4 bg-light text-center">Filter by Categories</h2>
+                        <h2 className="p-3 mt-2 mb-2 h4 bg-light text-center">Filter by Category</h2>
                         <div className="row p-5">
                             {categories?.map((c)=> (
                                 <Checkbox key={c._id} onChange={e => handleCheck(e.target.checked, c._id)}>
                                     {c.name}
                                 </Checkbox>
                             ))}
+                        </div>
+
+                        <h2 className="p-3 mt-2 mb-2 h4 bg-light text-center">Filter by Price</h2>
+                        <div className="row p-5">
+                            <Radio.Group onChange={e => setRadio(e.target.value)}>
+                                {prices?.map((p) => (
+                                    <div key={p._id} style={{marginLeft: '8px'}}>
+                                        <Radio value={p.array}>
+                                            {p.name}
+                                        </Radio>
+                                    </div>
+                                ))}
+                            </Radio.Group>
                         </div>
                     </div>
 
