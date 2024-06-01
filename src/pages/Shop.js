@@ -11,13 +11,31 @@ export default function Shop() {
     const [ checked, setChecked ] = useState([])
     const [ radio, setRadio ] = useState([])
 
+    
     useEffect(() => {
-        loadProducts()
-    }, [])
-
+        if (!checked.length || !radio.length) loadProducts()
+        }, [])
+    
     const loadProducts = async () => {
         try {
             const { data } = await axios.get('/products')
+            setProducts(data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    
+    useEffect(() => {
+        if (checked.length || radio.length) loadFilteredProducts()
+    }, [checked, radio])
+
+    const loadFilteredProducts = async () => {
+        try {
+            const { data } = await axios.post("/filtered-products", {
+                checked,
+                radio
+            })
+            console.log('filtered products => ', data)
             setProducts(data)
         } catch (err) {
             console.log(err)
@@ -48,7 +66,7 @@ export default function Shop() {
         setChecked(all)
     }
 
-    console.log('radio => ', radio)
+    console.log('checked categories => ', checked)
 
     return (
         <>
