@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import Jumbotron from "../components/cards/jumbotron"
 import axios from "axios"
 import ProductCard from "../components/cards/ProductCard"
+import { Checkbox } from "antd"
 
 export default function Shop() {
     const [ categories, setCategories ] = useState([])
     const [ products, setProducts ] = useState([])
+    const [ checked, setChecked ] = useState([])
 
     useEffect(() => {
         loadProducts()
@@ -33,7 +35,18 @@ export default function Shop() {
         }
     }
 
-    console.log('categories', categories)
+    const handleCheck = (value, id) => {
+        let all = [...checked]
+        if(value) {
+            all.push(id)
+        } else {
+            all = all.filter((c) => c !== id)
+        }
+
+        setChecked(all)
+    }
+
+    console.log('checked => ', checked)
 
     return (
         <>
@@ -41,7 +54,14 @@ export default function Shop() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-3">
-                        sidebar
+                        <h2 className="p-3 mt-2 mb-2 h4 bg-light text-center">Filter by Categories</h2>
+                        <div className="row p-5">
+                            {categories?.map((c)=> (
+                                <Checkbox key={c._id} onChange={e => handleCheck(e.target.checked, c._id)}>
+                                    {c.name}
+                                </Checkbox>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="col-md-9">
