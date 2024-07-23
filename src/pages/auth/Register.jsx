@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function Register () {
     const [ name, setName ] = useState('Jade')
-    const [ email, setEmail ] = useState('jen425@gmail.com')
+    const [ email, setEmail ] = useState('jen1@gmail.com')
     const [ password, setPassword ] = useState('jade425')
 
     const [ auth, setAuth ] = useAuth()
